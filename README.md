@@ -1,6 +1,6 @@
-# tip_me
+# test
 
-Tip calculator app
+A new Flutter project.
 
 ## Getting Started
 

@@ -1,4 +1,4 @@
-package com.raywenderlich.flutter.tip_me
+package com.example.test
 
 import io.flutter.embedding.android.FlutterActivity
 
