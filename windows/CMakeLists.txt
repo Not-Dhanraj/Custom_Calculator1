@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.15)
 project(test LANGUAGES CXX)
 
-set(BINARY_NAME "test")
+set(BINARY_NAME "Custom Calculator")
 
 cmake_policy(SET CMP0063 NEW)
 
