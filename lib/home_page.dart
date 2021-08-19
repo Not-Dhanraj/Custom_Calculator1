@@ -12,8 +12,11 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   late TextEditingController _billController;
   late String _percentText1;
+  late String _percentText15;
   late String _percentText2;
+  late String _percentText25;
   late String _percentText3;
+  late String _percentText35;
   late String _percentText4;
   late String _percentText5;
   late String _percentText6;
@@ -29,7 +32,9 @@ class _HomePageState extends State<HomePage> {
     _billController = new TextEditingController(text: "");
     _percentText1 = "0.00";
     _percentText2 = "0.00";
+    _percentText25 = "0.00";
     _percentText3 = "0.00";
+    _percentText35 = "0.00";
     _percentText4 = "0.00";
     _percentText5 = "0.00";
     _percentText6 = "0.00";
@@ -37,6 +42,7 @@ class _HomePageState extends State<HomePage> {
     _percentText8 = "0.00";
     _percentText9 = "0.00";
     _percentText10 = "0.00";
+    _percentText15 = "0.00";
     _percentTextNoProfitLoss = "0.00";
   }
 
@@ -99,6 +105,9 @@ class _HomePageState extends State<HomePage> {
                       _calculate9Percent();
                       _calculate10Percent();
                       _calculateNoProfitLossPercent();
+                      _calculate15Percent();
+                      _calculate25Percent();
+                      _calculate35Percent();
                     },
                     child: Text("Calculate"),
                   ),
@@ -187,7 +196,7 @@ class _HomePageState extends State<HomePage> {
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         Text(
-                          "1.5% :",
+                          "1% :",
                           textAlign: TextAlign.center,
                           style: TextStyle(fontSize: 18),
                         ),
@@ -228,7 +237,7 @@ class _HomePageState extends State<HomePage> {
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         Text(
-                          "1% :",
+                          "1.5% :",
                           textAlign: TextAlign.center,
                           style: TextStyle(fontSize: 18),
                         ),
@@ -236,7 +245,7 @@ class _HomePageState extends State<HomePage> {
                           height: 10,
                         ),
                         Text(
-                          _percentText1,
+                          _percentText15,
                           textAlign: TextAlign.center,
                           style: TextStyle(fontSize: 20),
                         ),
@@ -310,6 +319,47 @@ class _HomePageState extends State<HomePage> {
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         Text(
+                          "2.5% :",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(fontSize: 18),
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Text(
+                          _percentText25,
+                          textAlign: TextAlign.center,
+                          style: TextStyle(fontSize: 20),
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Container(
+                    height: 50,
+                    width: width,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(10),
+                          topRight: Radius.circular(10),
+                          bottomLeft: Radius.circular(10),
+                          bottomRight: Radius.circular(10)),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.grey.withOpacity(0.5),
+                          spreadRadius: 5,
+                          blurRadius: 7,
+                          offset: Offset(0, 3), // changes position of shadow
+                        ),
+                      ],
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Text(
                           "3% :",
                           textAlign: TextAlign.center,
                           style: TextStyle(fontSize: 18),
@@ -319,6 +369,47 @@ class _HomePageState extends State<HomePage> {
                         ),
                         Text(
                           _percentText3,
+                          textAlign: TextAlign.center,
+                          style: TextStyle(fontSize: 20),
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Container(
+                    height: 50,
+                    width: width,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(10),
+                          topRight: Radius.circular(10),
+                          bottomLeft: Radius.circular(10),
+                          bottomRight: Radius.circular(10)),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.grey.withOpacity(0.5),
+                          spreadRadius: 5,
+                          blurRadius: 7,
+                          offset: Offset(0, 3), // changes position of shadow
+                        ),
+                      ],
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Text(
+                          "3.5% :",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(fontSize: 18),
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Text(
+                          _percentText35,
                           textAlign: TextAlign.center,
                           style: TextStyle(fontSize: 20),
                         ),
@@ -597,7 +688,7 @@ class _HomePageState extends State<HomePage> {
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         Text(
-                          "10 Percent",
+                          "10% :",
                           textAlign: TextAlign.center,
                           style: TextStyle(fontSize: 18),
                         ),
@@ -629,10 +720,24 @@ class _HomePageState extends State<HomePage> {
     String finalTipAmount = "0";
     if (tip <= 100 && tip >= 0 && bill >= 0) {
       double tipAmount = (bill * (tip / 100));
-      finalTipAmount = tipAmount.toStringAsFixed(6);
+      finalTipAmount = tipAmount.toStringAsFixed(3);
     }
     setState(() {
       _percentText1 = "$finalTipAmount";
+    });
+  }
+
+  void _calculate15Percent() {
+    String billTxt = _billController.text;
+    billTxt = billTxt.replaceAll(new RegExp(r"[^0-9]"), "");
+    int bill = int.parse(billTxt.isNotEmpty ? billTxt : "0");
+    String finalTipAmount = "0";
+    if (1.5 <= 100 && 1.5 >= 0 && bill >= 0) {
+      double tipAmount = (bill * (1.5 / 100));
+      finalTipAmount = tipAmount.toStringAsFixed(3);
+    }
+    setState(() {
+      _percentText15 = "$finalTipAmount";
     });
   }
 
@@ -646,10 +751,24 @@ class _HomePageState extends State<HomePage> {
     String finalTipAmount = "0";
     if (tip <= 100 && tip >= 0 && bill >= 0) {
       double tipAmount = (bill * (tip / 100));
-      finalTipAmount = tipAmount.toStringAsFixed(6);
+      finalTipAmount = tipAmount.toStringAsFixed(3);
     }
     setState(() {
       _percentText2 = "$finalTipAmount";
+    });
+  }
+
+  void _calculate25Percent() {
+    String billTxt = _billController.text;
+    billTxt = billTxt.replaceAll(new RegExp(r"[^0-9]"), "");
+    int bill = int.parse(billTxt.isNotEmpty ? billTxt : "0");
+    String finalTipAmount = "0";
+    if (2.5 <= 100 && 2.5 >= 0 && bill >= 0) {
+      double tipAmount = (bill * (2.5 / 100));
+      finalTipAmount = tipAmount.toStringAsFixed(3);
+    }
+    setState(() {
+      _percentText25 = "$finalTipAmount";
     });
   }
 
@@ -663,10 +782,24 @@ class _HomePageState extends State<HomePage> {
     String finalTipAmount = "0";
     if (tip <= 100 && tip >= 0 && bill >= 0) {
       double tipAmount = (bill * (tip / 100));
-      finalTipAmount = tipAmount.toStringAsFixed(6);
+      finalTipAmount = tipAmount.toStringAsFixed(3);
     }
     setState(() {
       _percentText3 = "$finalTipAmount";
+    });
+  }
+
+  void _calculate35Percent() {
+    String billTxt = _billController.text;
+    billTxt = billTxt.replaceAll(new RegExp(r"[^0-9]"), "");
+    int bill = int.parse(billTxt.isNotEmpty ? billTxt : "0");
+    String finalTipAmount = "0";
+    if (3.5 <= 100 && 3.5 >= 0 && bill >= 0) {
+      double tipAmount = (bill * (3.5 / 100));
+      finalTipAmount = tipAmount.toStringAsFixed(3);
+    }
+    setState(() {
+      _percentText35 = "$finalTipAmount";
     });
   }
 
@@ -680,7 +813,7 @@ class _HomePageState extends State<HomePage> {
     String finalTipAmount = "0";
     if (tip <= 100 && tip >= 0 && bill >= 0) {
       double tipAmount = (bill * (tip / 100));
-      finalTipAmount = tipAmount.toStringAsFixed(6);
+      finalTipAmount = tipAmount.toStringAsFixed(3);
     }
     setState(() {
       _percentText4 = "$finalTipAmount";
@@ -697,7 +830,7 @@ class _HomePageState extends State<HomePage> {
     String finalTipAmount = "0";
     if (tip <= 100 && tip >= 0 && bill >= 0) {
       double tipAmount = (bill * (tip / 100));
-      finalTipAmount = tipAmount.toStringAsFixed(6);
+      finalTipAmount = tipAmount.toStringAsFixed(3);
     }
     setState(() {
       _percentText5 = "$finalTipAmount";
@@ -714,7 +847,7 @@ class _HomePageState extends State<HomePage> {
     String finalTipAmount = "0";
     if (tip <= 100 && tip >= 0 && bill >= 0) {
       double tipAmount = (bill * (tip / 100));
-      finalTipAmount = tipAmount.toStringAsFixed(6);
+      finalTipAmount = tipAmount.toStringAsFixed(3);
     }
     setState(() {
       _percentText6 = "$finalTipAmount";
@@ -731,7 +864,7 @@ class _HomePageState extends State<HomePage> {
     String finalTipAmount = "0";
     if (tip <= 100 && tip >= 0 && bill >= 0) {
       double tipAmount = (bill * (tip / 100));
-      finalTipAmount = tipAmount.toStringAsFixed(6);
+      finalTipAmount = tipAmount.toStringAsFixed(3);
     }
     setState(() {
       _percentText7 = "$finalTipAmount";
@@ -748,7 +881,7 @@ class _HomePageState extends State<HomePage> {
     String finalTipAmount = "0";
     if (tip <= 100 && tip >= 0 && bill >= 0) {
       double tipAmount = (bill * (tip / 100));
-      finalTipAmount = tipAmount.toStringAsFixed(6);
+      finalTipAmount = tipAmount.toStringAsFixed(3);
     }
     setState(() {
       _percentText8 = "$finalTipAmount";
@@ -765,7 +898,7 @@ class _HomePageState extends State<HomePage> {
     String finalTipAmount = "0";
     if (tip <= 100 && tip >= 0 && bill >= 0) {
       double tipAmount = (bill * (tip / 100));
-      finalTipAmount = tipAmount.toStringAsFixed(6);
+      finalTipAmount = tipAmount.toStringAsFixed(3);
     }
     setState(() {
       _percentText9 = "$finalTipAmount";
@@ -796,7 +929,7 @@ class _HomePageState extends State<HomePage> {
     String finalTipAmount = "0";
     if (tip <= 100 && tip >= 0 && bill >= 0) {
       double tipAmount = (bill * (tip / 100));
-      finalTipAmount = tipAmount.toStringAsFixed(6);
+      finalTipAmount = tipAmount.toStringAsFixed(3);
     }
     setState(() {
       _percentText10 = "$finalTipAmount";
