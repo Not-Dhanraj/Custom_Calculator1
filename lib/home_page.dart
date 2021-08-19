@@ -21,6 +21,7 @@ class _HomePageState extends State<HomePage> {
   late String _percentText8;
   late String _percentText9;
   late String _percentText10;
+  late String _percentTextNoProfitLoss;
 
   @override
   void initState() {
@@ -36,6 +37,7 @@ class _HomePageState extends State<HomePage> {
     _percentText8 = "0.00";
     _percentText9 = "0.00";
     _percentText10 = "0.00";
+    _percentTextNoProfitLoss = "0.00";
   }
 
   @override
@@ -55,35 +57,35 @@ class _HomePageState extends State<HomePage> {
         child: SingleChildScrollView(
           physics: BouncingScrollPhysics(),
           child: Padding(
-            padding: const EdgeInsets.all(20.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Padding(padding: EdgeInsets.only(top: 5)),
-                TextField(
-                  decoration: new InputDecoration(
-                      border: new OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(15.0),
-                        borderSide: new BorderSide(color: Colors.teal),
-                      ),
-                      hintText: 'Enter Any Number',
-                      helperText: 'Enter Number and Tap Calculate',
-                      labelText: 'Number',
-                      prefixIcon: const Icon(
-                        Icons.confirmation_number_outlined,
-                        color: Colors.green,
-                      ),
-                      suffixText: 'Number',
-                      suffixStyle: const TextStyle(color: Colors.green)),
-                  maxLength: 19,
-                  controller: _billController,
-                  keyboardType: TextInputType.number,
-                ),
-                SizedBox(
-                  height: 15,
-                ),
-                ElevatedButton(
+              padding: const EdgeInsets.all(20.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Padding(padding: EdgeInsets.only(top: 5)),
+                  TextField(
+                    decoration: new InputDecoration(
+                        border: new OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(15.0),
+                          borderSide: new BorderSide(color: Colors.teal),
+                        ),
+                        hintText: 'Enter Any Number',
+                        helperText: 'Enter Number and Tap Calculate',
+                        labelText: 'Number',
+                        prefixIcon: const Icon(
+                          Icons.confirmation_number_outlined,
+                          color: Colors.green,
+                        ),
+                        suffixText: 'Number',
+                        suffixStyle: const TextStyle(color: Colors.green)),
+                    maxLength: 19,
+                    controller: _billController,
+                    keyboardType: TextInputType.number,
+                  ),
+                  SizedBox(
+                    height: 15,
+                  ),
+                  ElevatedButton(
                     onPressed: () {
                       FocusScope.of(context).unfocus();
                       _calculate1Percent();
@@ -96,488 +98,522 @@ class _HomePageState extends State<HomePage> {
                       _calculate8Percent();
                       _calculate9Percent();
                       _calculate10Percent();
+                      _calculateNoProfitLossPercent();
                     },
-                    child: Text("Calculate")),
-                SizedBox(
-                  height: 25,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    Container(
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(10),
-                            topRight: Radius.circular(10),
-                            bottomLeft: Radius.circular(10),
-                            bottomRight: Radius.circular(10)),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.grey.withOpacity(0.5),
-                            spreadRadius: 5,
-                            blurRadius: 7,
-                            offset: Offset(0, 3), // changes position of shadow
+                    child: Text("Calculate"),
+                  ),
+                  SizedBox(
+                    height: 25,
+                  ),
+                  Container(
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(10),
+                          topRight: Radius.circular(10),
+                          bottomLeft: Radius.circular(10),
+                          bottomRight: Radius.circular(10)),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.grey.withOpacity(0.5),
+                          spreadRadius: 5,
+                          blurRadius: 7,
+                          offset: Offset(0, 3), // changes position of shadow
+                        ),
+                      ],
+                    ),
+                    child: Container(
+                      height: 50,
+                      width: width,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          ClipRRect(
+                            borderRadius: BorderRadius.circular(5),
+                            child: Container(
+                              color: Colors.amber,
+                              height: 50,
+                              child: Padding(
+                                padding:
+                                    const EdgeInsets.symmetric(horizontal: 10),
+                                child: Center(
+                                  child: Text(
+                                    "No Profit/Loss:",
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(fontSize: 18),
+                                  ),
+                                ),
+                              ),
+                            ),
                           ),
-                        ],
-                      ),
-                      child: Card(
-                        elevation: 0,
-                        child: Container(
-                          height: 90,
-                          width: width,
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text(
-                                "1 Percent",
-                                textAlign: TextAlign.center,
-                                style: TextStyle(fontSize: 18),
-                              ),
-                              SizedBox(
-                                height: 10,
-                              ),
-                              Text(
-                                _percentText1,
+                          Expanded(
+                            child: Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 8),
+                              child: Text(
+                                _percentTextNoProfitLoss,
                                 textAlign: TextAlign.center,
                                 style: TextStyle(fontSize: 20),
                               ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                      width: 0,
-                    ),
-                    Container(
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(10),
-                            topRight: Radius.circular(10),
-                            bottomLeft: Radius.circular(10),
-                            bottomRight: Radius.circular(10)),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.grey.withOpacity(0.5),
-                            spreadRadius: 5,
-                            blurRadius: 7,
-                            offset: Offset(0, 3), // changes position of shadow
+                            ),
                           ),
                         ],
                       ),
-                      child: Card(
-                        elevation: 0,
-                        child: Container(
-                          height: 90,
-                          width: width,
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text(
-                                "2 Percent",
-                                textAlign: TextAlign.center,
-                                style: TextStyle(fontSize: 18),
-                              ),
-                              SizedBox(
-                                height: 5,
-                              ),
-                              Text(
-                                _percentText2,
-                                textAlign: TextAlign.center,
-                                style: TextStyle(fontSize: 20),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
                     ),
-                  ],
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    Container(
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(10),
-                            topRight: Radius.circular(10),
-                            bottomLeft: Radius.circular(10),
-                            bottomRight: Radius.circular(10)),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.grey.withOpacity(0.5),
-                            spreadRadius: 5,
-                            blurRadius: 7,
-                            offset: Offset(0, 3), // changes position of shadow
-                          ),
-                        ],
-                      ),
-                      child: Card(
-                        elevation: 0,
-                        child: Container(
-                          height: 90,
-                          width: width,
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text(
-                                "3 Percent",
-                                textAlign: TextAlign.center,
-                                style: TextStyle(fontSize: 18),
-                              ),
-                              SizedBox(
-                                height: 10,
-                              ),
-                              Text(
-                                _percentText3,
-                                textAlign: TextAlign.center,
-                                style: TextStyle(fontSize: 20),
-                              ),
-                            ],
-                          ),
+                  ),
+                  SizedBox(
+                    height: 25,
+                  ),
+                  Container(
+                    height: 50,
+                    width: width,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(10),
+                          topRight: Radius.circular(10),
+                          bottomLeft: Radius.circular(10),
+                          bottomRight: Radius.circular(10)),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.grey.withOpacity(0.5),
+                          spreadRadius: 5,
+                          blurRadius: 7,
+                          offset: Offset(0, 3), // changes position of shadow
                         ),
-                      ),
+                      ],
                     ),
-                    SizedBox(),
-                    Container(
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(10),
-                            topRight: Radius.circular(10),
-                            bottomLeft: Radius.circular(10),
-                            bottomRight: Radius.circular(10)),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.grey.withOpacity(0.5),
-                            spreadRadius: 5,
-                            blurRadius: 7,
-                            offset: Offset(0, 3), // changes position of shadow
-                          ),
-                        ],
-                      ),
-                      child: Card(
-                        elevation: 0,
-                        child: Container(
-                          height: 90,
-                          width: width,
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text(
-                                "4 Percent",
-                                textAlign: TextAlign.center,
-                                style: TextStyle(fontSize: 18),
-                              ),
-                              SizedBox(
-                                height: 5,
-                              ),
-                              Text(
-                                _percentText4,
-                                textAlign: TextAlign.center,
-                                style: TextStyle(fontSize: 20),
-                              ),
-                            ],
-                          ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Text(
+                          "1.5% :",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(fontSize: 18),
                         ),
-                      ),
-                    ),
-                  ],
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    Container(
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(10),
-                            topRight: Radius.circular(10),
-                            bottomLeft: Radius.circular(10),
-                            bottomRight: Radius.circular(10)),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.grey.withOpacity(0.5),
-                            spreadRadius: 5,
-                            blurRadius: 7,
-                            offset: Offset(0, 3), // changes position of shadow
-                          ),
-                        ],
-                      ),
-                      child: Card(
-                        elevation: 0,
-                        child: Container(
-                          height: 90,
-                          width: width,
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text(
-                                "5 Percent",
-                                textAlign: TextAlign.center,
-                                style: TextStyle(fontSize: 18),
-                              ),
-                              SizedBox(
-                                height: 10,
-                              ),
-                              Text(
-                                _percentText5,
-                                textAlign: TextAlign.center,
-                                style: TextStyle(fontSize: 20),
-                              ),
-                            ],
-                          ),
+                        SizedBox(
+                          height: 10,
                         ),
-                      ),
-                    ),
-                    SizedBox(),
-                    Container(
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(10),
-                            topRight: Radius.circular(10),
-                            bottomLeft: Radius.circular(10),
-                            bottomRight: Radius.circular(10)),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.grey.withOpacity(0.5),
-                            spreadRadius: 5,
-                            blurRadius: 7,
-                            offset: Offset(0, 3), // changes position of shadow
-                          ),
-                        ],
-                      ),
-                      child: Card(
-                        elevation: 0,
-                        child: Container(
-                          height: 90,
-                          width: width,
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text(
-                                "6 Percent",
-                                textAlign: TextAlign.center,
-                                style: TextStyle(fontSize: 18),
-                              ),
-                              SizedBox(
-                                height: 5,
-                              ),
-                              Text(
-                                _percentText6,
-                                textAlign: TextAlign.center,
-                                style: TextStyle(fontSize: 20),
-                              ),
-                            ],
-                          ),
+                        Text(
+                          _percentText1,
+                          textAlign: TextAlign.center,
+                          style: TextStyle(fontSize: 20),
                         ),
-                      ),
+                      ],
                     ),
-                  ],
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    Container(
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(10),
-                            topRight: Radius.circular(10),
-                            bottomLeft: Radius.circular(10),
-                            bottomRight: Radius.circular(10)),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.grey.withOpacity(0.5),
-                            spreadRadius: 5,
-                            blurRadius: 7,
-                            offset: Offset(0, 3), // changes position of shadow
-                          ),
-                        ],
-                      ),
-                      child: Card(
-                        elevation: 0,
-                        child: Container(
-                          height: 90,
-                          width: width,
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text(
-                                "7 Percent",
-                                textAlign: TextAlign.center,
-                                style: TextStyle(fontSize: 18),
-                              ),
-                              SizedBox(
-                                height: 10,
-                              ),
-                              Text(
-                                _percentText7,
-                                textAlign: TextAlign.center,
-                                style: TextStyle(fontSize: 20),
-                              ),
-                            ],
-                          ),
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Container(
+                    height: 50,
+                    width: width,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(10),
+                          topRight: Radius.circular(10),
+                          bottomLeft: Radius.circular(10),
+                          bottomRight: Radius.circular(10)),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.grey.withOpacity(0.5),
+                          spreadRadius: 5,
+                          blurRadius: 7,
+                          offset: Offset(0, 3), // changes position of shadow
                         ),
-                      ),
+                      ],
                     ),
-                    SizedBox(),
-                    Container(
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(10),
-                            topRight: Radius.circular(10),
-                            bottomLeft: Radius.circular(10),
-                            bottomRight: Radius.circular(10)),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.grey.withOpacity(0.5),
-                            spreadRadius: 5,
-                            blurRadius: 7,
-                            offset: Offset(0, 3), // changes position of shadow
-                          ),
-                        ],
-                      ),
-                      child: Card(
-                        elevation: 0,
-                        child: Container(
-                          height: 90,
-                          width: width,
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text(
-                                "8 Percent",
-                                textAlign: TextAlign.center,
-                                style: TextStyle(fontSize: 18),
-                              ),
-                              SizedBox(
-                                height: 5,
-                              ),
-                              Text(
-                                _percentText8,
-                                textAlign: TextAlign.center,
-                                style: TextStyle(fontSize: 20),
-                              ),
-                            ],
-                          ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Text(
+                          "1% :",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(fontSize: 18),
                         ),
-                      ),
-                    ),
-                  ],
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    Container(
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(10),
-                            topRight: Radius.circular(10),
-                            bottomLeft: Radius.circular(10),
-                            bottomRight: Radius.circular(10)),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.grey.withOpacity(0.5),
-                            spreadRadius: 5,
-                            blurRadius: 7,
-                            offset: Offset(0, 3), // changes position of shadow
-                          ),
-                        ],
-                      ),
-                      child: Card(
-                        elevation: 0,
-                        child: Container(
-                          height: 90,
-                          width: width,
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text(
-                                "9 Percent",
-                                textAlign: TextAlign.center,
-                                style: TextStyle(fontSize: 18),
-                              ),
-                              SizedBox(
-                                height: 10,
-                              ),
-                              Text(
-                                _percentText9,
-                                textAlign: TextAlign.center,
-                                style: TextStyle(fontSize: 20),
-                              ),
-                            ],
-                          ),
+                        SizedBox(
+                          height: 10,
                         ),
-                      ),
-                    ),
-                    SizedBox(),
-                    Container(
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(10),
-                            topRight: Radius.circular(10),
-                            bottomLeft: Radius.circular(10),
-                            bottomRight: Radius.circular(10)),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.grey.withOpacity(0.5),
-                            spreadRadius: 5,
-                            blurRadius: 7,
-                            offset: Offset(0, 3), // changes position of shadow
-                          ),
-                        ],
-                      ),
-                      child: Card(
-                        elevation: 0,
-                        child: Container(
-                          height: 90,
-                          width: width,
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text(
-                                "10 Percent",
-                                textAlign: TextAlign.center,
-                                style: TextStyle(fontSize: 18),
-                              ),
-                              SizedBox(
-                                height: 5,
-                              ),
-                              Text(
-                                _percentText10,
-                                textAlign: TextAlign.center,
-                                style: TextStyle(fontSize: 20),
-                              ),
-                            ],
-                          ),
+                        Text(
+                          _percentText1,
+                          textAlign: TextAlign.center,
+                          style: TextStyle(fontSize: 20),
                         ),
-                      ),
+                      ],
                     ),
-                  ],
-                )
-              ],
-            ),
-          ),
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Container(
+                    height: 50,
+                    width: width,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(10),
+                          topRight: Radius.circular(10),
+                          bottomLeft: Radius.circular(10),
+                          bottomRight: Radius.circular(10)),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.grey.withOpacity(0.5),
+                          spreadRadius: 5,
+                          blurRadius: 7,
+                          offset: Offset(0, 3), // changes position of shadow
+                        ),
+                      ],
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Text(
+                          "2% :",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(fontSize: 18),
+                        ),
+                        SizedBox(
+                          height: 5,
+                        ),
+                        Text(
+                          _percentText2,
+                          textAlign: TextAlign.center,
+                          style: TextStyle(fontSize: 20),
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Container(
+                    height: 50,
+                    width: width,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(10),
+                          topRight: Radius.circular(10),
+                          bottomLeft: Radius.circular(10),
+                          bottomRight: Radius.circular(10)),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.grey.withOpacity(0.5),
+                          spreadRadius: 5,
+                          blurRadius: 7,
+                          offset: Offset(0, 3), // changes position of shadow
+                        ),
+                      ],
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Text(
+                          "3% :",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(fontSize: 18),
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Text(
+                          _percentText3,
+                          textAlign: TextAlign.center,
+                          style: TextStyle(fontSize: 20),
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Container(
+                    height: 50,
+                    width: width,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(10),
+                          topRight: Radius.circular(10),
+                          bottomLeft: Radius.circular(10),
+                          bottomRight: Radius.circular(10)),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.grey.withOpacity(0.5),
+                          spreadRadius: 5,
+                          blurRadius: 7,
+                          offset: Offset(0, 3), // changes position of shadow
+                        ),
+                      ],
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Text(
+                          "4% :",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(fontSize: 18),
+                        ),
+                        SizedBox(
+                          height: 5,
+                        ),
+                        Text(
+                          _percentText4,
+                          textAlign: TextAlign.center,
+                          style: TextStyle(fontSize: 20),
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Container(
+                    height: 50,
+                    width: width,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(10),
+                          topRight: Radius.circular(10),
+                          bottomLeft: Radius.circular(10),
+                          bottomRight: Radius.circular(10)),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.grey.withOpacity(0.5),
+                          spreadRadius: 5,
+                          blurRadius: 7,
+                          offset: Offset(0, 3), // changes position of shadow
+                        ),
+                      ],
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Text(
+                          "5% :",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(fontSize: 18),
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Text(
+                          _percentText5,
+                          textAlign: TextAlign.center,
+                          style: TextStyle(fontSize: 20),
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Container(
+                    height: 50,
+                    width: width,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(10),
+                          topRight: Radius.circular(10),
+                          bottomLeft: Radius.circular(10),
+                          bottomRight: Radius.circular(10)),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.grey.withOpacity(0.5),
+                          spreadRadius: 5,
+                          blurRadius: 7,
+                          offset: Offset(0, 3), // changes position of shadow
+                        ),
+                      ],
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Text(
+                          "6% :",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(fontSize: 18),
+                        ),
+                        SizedBox(
+                          height: 5,
+                        ),
+                        Text(
+                          _percentText6,
+                          textAlign: TextAlign.center,
+                          style: TextStyle(fontSize: 20),
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Container(
+                    height: 50,
+                    width: width,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(10),
+                          topRight: Radius.circular(10),
+                          bottomLeft: Radius.circular(10),
+                          bottomRight: Radius.circular(10)),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.grey.withOpacity(0.5),
+                          spreadRadius: 5,
+                          blurRadius: 7,
+                          offset: Offset(0, 3), // changes position of shadow
+                        ),
+                      ],
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Text(
+                          "7% :",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(fontSize: 18),
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Text(
+                          _percentText7,
+                          textAlign: TextAlign.center,
+                          style: TextStyle(fontSize: 20),
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Container(
+                    height: 50,
+                    width: width,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(10),
+                          topRight: Radius.circular(10),
+                          bottomLeft: Radius.circular(10),
+                          bottomRight: Radius.circular(10)),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.grey.withOpacity(0.5),
+                          spreadRadius: 5,
+                          blurRadius: 7,
+                          offset: Offset(0, 3), // changes position of shadow
+                        ),
+                      ],
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Text(
+                          "8% :",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(fontSize: 18),
+                        ),
+                        SizedBox(
+                          height: 5,
+                        ),
+                        Text(
+                          _percentText8,
+                          textAlign: TextAlign.center,
+                          style: TextStyle(fontSize: 20),
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Container(
+                    width: width,
+                    height: 50,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(10),
+                          topRight: Radius.circular(10),
+                          bottomLeft: Radius.circular(10),
+                          bottomRight: Radius.circular(10)),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.grey.withOpacity(0.5),
+                          spreadRadius: 5,
+                          blurRadius: 7,
+                          offset: Offset(0, 3), // changes position of shadow
+                        ),
+                      ],
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Text(
+                          "9% :",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(fontSize: 18),
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Text(
+                          _percentText9,
+                          textAlign: TextAlign.center,
+                          style: TextStyle(fontSize: 20),
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Container(
+                    height: 50,
+                    width: width,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(10),
+                          topRight: Radius.circular(10),
+                          bottomLeft: Radius.circular(10),
+                          bottomRight: Radius.circular(10)),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.grey.withOpacity(0.5),
+                          spreadRadius: 5,
+                          blurRadius: 7,
+                          offset: Offset(0, 3), // changes position of shadow
+                        ),
+                      ],
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Text(
+                          "10 Percent",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(fontSize: 18),
+                        ),
+                        SizedBox(
+                          height: 5,
+                        ),
+                        Text(
+                          _percentText10,
+                          textAlign: TextAlign.center,
+                          style: TextStyle(fontSize: 20),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              )),
         ),
       ),
     );
@@ -736,6 +772,20 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
+  void _calculateNoProfitLossPercent() {
+    String billTxt = _billController.text;
+    billTxt = billTxt.replaceAll(new RegExp(r"[^0-9]"), "");
+    int bill = int.parse(billTxt.isNotEmpty ? billTxt : "0");
+    String totalamount = "0";
+    if (0.4 <= 100 && 0.4 >= 0 && bill >= 0) {
+      double tipAmount = (bill * (0.4 / 100));
+      totalamount = (bill + tipAmount).toStringAsFixed(3);
+    }
+    setState(() {
+      _percentTextNoProfitLoss = "$totalamount";
+    });
+  }
+
   void _calculate10Percent() {
     String billTxt = _billController.text;
     String tipTxt = 10.toString();
@@ -751,14 +801,5 @@ class _HomePageState extends State<HomePage> {
     setState(() {
       _percentText10 = "$finalTipAmount";
     });
-  }
-
-  @override
-  void dispose() {
-    if (!mounted) {
-      _billController.dispose();
-    }
-
-    super.dispose();
   }
 }
