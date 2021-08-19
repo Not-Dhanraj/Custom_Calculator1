@@ -797,13 +797,13 @@ class _HomePageState extends State<HomePage> {
     tipTxt = tipTxt.replaceAll(new RegExp(r"[^0-9]"), "");
     int bill = int.parse(billTxt.isNotEmpty ? billTxt : "0");
     int tip = int.parse(tipTxt.isNotEmpty ? tipTxt : "0");
-    String finalTipAmount = "0";
+    String totalamount = "0";
     if (tip <= 100 && tip >= 0 && bill >= 0) {
       double tipAmount = (bill * (tip / 100));
-      finalTipAmount = tipAmount.toStringAsFixed(3);
+      totalamount = (bill + tipAmount).toStringAsFixed(3);
     }
     setState(() {
-      _percentText1 = "$finalTipAmount";
+      _percentText1 = "$totalamount";
     });
   }
 
@@ -811,13 +811,13 @@ class _HomePageState extends State<HomePage> {
     String billTxt = _billController.text;
     billTxt = billTxt.replaceAll(new RegExp(r"[^0-9]"), "");
     int bill = int.parse(billTxt.isNotEmpty ? billTxt : "0");
-    String finalTipAmount = "0";
+    String totalamount = "0";
     if (1.5 <= 100 && 1.5 >= 0 && bill >= 0) {
       double tipAmount = (bill * (1.5 / 100));
-      finalTipAmount = tipAmount.toStringAsFixed(3);
+      totalamount = (bill + tipAmount).toStringAsFixed(3);
     }
     setState(() {
-      _percentText15 = "$finalTipAmount";
+      _percentText15 = "$totalamount";
     });
   }
 
@@ -828,13 +828,13 @@ class _HomePageState extends State<HomePage> {
     tipTxt = tipTxt.replaceAll(new RegExp(r"[^0-9]"), "");
     int bill = int.parse(billTxt.isNotEmpty ? billTxt : "0");
     int tip = int.parse(tipTxt.isNotEmpty ? tipTxt : "0");
-    String finalTipAmount = "0";
+    String totalamount = "0";
     if (tip <= 100 && tip >= 0 && bill >= 0) {
       double tipAmount = (bill * (tip / 100));
-      finalTipAmount = tipAmount.toStringAsFixed(3);
+      totalamount = (bill + tipAmount).toStringAsFixed(3);
     }
     setState(() {
-      _percentText2 = "$finalTipAmount";
+      _percentText2 = "$totalamount";
     });
   }
 
@@ -842,13 +842,13 @@ class _HomePageState extends State<HomePage> {
     String billTxt = _billController.text;
     billTxt = billTxt.replaceAll(new RegExp(r"[^0-9]"), "");
     int bill = int.parse(billTxt.isNotEmpty ? billTxt : "0");
-    String finalTipAmount = "0";
+    String totalamount = "0";
     if (2.5 <= 100 && 2.5 >= 0 && bill >= 0) {
       double tipAmount = (bill * (2.5 / 100));
-      finalTipAmount = tipAmount.toStringAsFixed(3);
+      totalamount = (bill + tipAmount).toStringAsFixed(3);
     }
     setState(() {
-      _percentText25 = "$finalTipAmount";
+      _percentText25 = "$totalamount";
     });
   }
 
@@ -859,13 +859,13 @@ class _HomePageState extends State<HomePage> {
     tipTxt = tipTxt.replaceAll(new RegExp(r"[^0-9]"), "");
     int bill = int.parse(billTxt.isNotEmpty ? billTxt : "0");
     int tip = int.parse(tipTxt.isNotEmpty ? tipTxt : "0");
-    String finalTipAmount = "0";
+    String totalamount = "0";
     if (tip <= 100 && tip >= 0 && bill >= 0) {
       double tipAmount = (bill * (tip / 100));
-      finalTipAmount = tipAmount.toStringAsFixed(3);
+      totalamount = (bill + tipAmount).toStringAsFixed(3);
     }
     setState(() {
-      _percentText3 = "$finalTipAmount";
+      _percentText3 = "$totalamount";
     });
   }
 
@@ -873,13 +873,13 @@ class _HomePageState extends State<HomePage> {
     String billTxt = _billController.text;
     billTxt = billTxt.replaceAll(new RegExp(r"[^0-9]"), "");
     int bill = int.parse(billTxt.isNotEmpty ? billTxt : "0");
-    String finalTipAmount = "0";
+    String totalamount = "0";
     if (3.5 <= 100 && 3.5 >= 0 && bill >= 0) {
       double tipAmount = (bill * (3.5 / 100));
-      finalTipAmount = tipAmount.toStringAsFixed(3);
+      totalamount = (bill + tipAmount).toStringAsFixed(3);
     }
     setState(() {
-      _percentText35 = "$finalTipAmount";
+      _percentText35 = "$totalamount";
     });
   }
 
@@ -890,13 +890,13 @@ class _HomePageState extends State<HomePage> {
     tipTxt = tipTxt.replaceAll(new RegExp(r"[^0-9]"), "");
     int bill = int.parse(billTxt.isNotEmpty ? billTxt : "0");
     int tip = int.parse(tipTxt.isNotEmpty ? tipTxt : "0");
-    String finalTipAmount = "0";
+    String totalamount = "0";
     if (tip <= 100 && tip >= 0 && bill >= 0) {
       double tipAmount = (bill * (tip / 100));
-      finalTipAmount = tipAmount.toStringAsFixed(3);
+      totalamount = (bill + tipAmount).toStringAsFixed(3);
     }
     setState(() {
-      _percentText4 = "$finalTipAmount";
+      _percentText4 = "$totalamount";
     });
   }
 
@@ -907,13 +907,13 @@ class _HomePageState extends State<HomePage> {
     tipTxt = tipTxt.replaceAll(new RegExp(r"[^0-9]"), "");
     int bill = int.parse(billTxt.isNotEmpty ? billTxt : "0");
     int tip = int.parse(tipTxt.isNotEmpty ? tipTxt : "0");
-    String finalTipAmount = "0";
+    String totalamount = "0";
     if (tip <= 100 && tip >= 0 && bill >= 0) {
       double tipAmount = (bill * (tip / 100));
-      finalTipAmount = tipAmount.toStringAsFixed(3);
+      totalamount = (bill + tipAmount).toStringAsFixed(3);
     }
     setState(() {
-      _percentText5 = "$finalTipAmount";
+      _percentText5 = "$totalamount";
     });
   }
 
@@ -924,13 +924,13 @@ class _HomePageState extends State<HomePage> {
     tipTxt = tipTxt.replaceAll(new RegExp(r"[^0-9]"), "");
     int bill = int.parse(billTxt.isNotEmpty ? billTxt : "0");
     int tip = int.parse(tipTxt.isNotEmpty ? tipTxt : "0");
-    String finalTipAmount = "0";
+    String totalamount = "0";
     if (tip <= 100 && tip >= 0 && bill >= 0) {
       double tipAmount = (bill * (tip / 100));
-      finalTipAmount = tipAmount.toStringAsFixed(3);
+      totalamount = (bill + tipAmount).toStringAsFixed(3);
     }
     setState(() {
-      _percentText6 = "$finalTipAmount";
+      _percentText6 = "$totalamount";
     });
   }
 
@@ -941,13 +941,13 @@ class _HomePageState extends State<HomePage> {
     tipTxt = tipTxt.replaceAll(new RegExp(r"[^0-9]"), "");
     int bill = int.parse(billTxt.isNotEmpty ? billTxt : "0");
     int tip = int.parse(tipTxt.isNotEmpty ? tipTxt : "0");
-    String finalTipAmount = "0";
+    String totalamount = "0";
     if (tip <= 100 && tip >= 0 && bill >= 0) {
       double tipAmount = (bill * (tip / 100));
-      finalTipAmount = tipAmount.toStringAsFixed(3);
+      totalamount = (bill + tipAmount).toStringAsFixed(3);
     }
     setState(() {
-      _percentText7 = "$finalTipAmount";
+      _percentText7 = "$totalamount";
     });
   }
 
@@ -958,13 +958,13 @@ class _HomePageState extends State<HomePage> {
     tipTxt = tipTxt.replaceAll(new RegExp(r"[^0-9]"), "");
     int bill = int.parse(billTxt.isNotEmpty ? billTxt : "0");
     int tip = int.parse(tipTxt.isNotEmpty ? tipTxt : "0");
-    String finalTipAmount = "0";
+    String totalamount = "0";
     if (tip <= 100 && tip >= 0 && bill >= 0) {
       double tipAmount = (bill * (tip / 100));
-      finalTipAmount = tipAmount.toStringAsFixed(3);
+      totalamount = (bill + tipAmount).toStringAsFixed(3);
     }
     setState(() {
-      _percentText8 = "$finalTipAmount";
+      _percentText8 = "$totalamount";
     });
   }
 
@@ -975,13 +975,13 @@ class _HomePageState extends State<HomePage> {
     tipTxt = tipTxt.replaceAll(new RegExp(r"[^0-9]"), "");
     int bill = int.parse(billTxt.isNotEmpty ? billTxt : "0");
     int tip = int.parse(tipTxt.isNotEmpty ? tipTxt : "0");
-    String finalTipAmount = "0";
+    String totalamount = "0";
     if (tip <= 100 && tip >= 0 && bill >= 0) {
       double tipAmount = (bill * (tip / 100));
-      finalTipAmount = tipAmount.toStringAsFixed(3);
+      totalamount = (bill + tipAmount).toStringAsFixed(3);
     }
     setState(() {
-      _percentText9 = "$finalTipAmount";
+      _percentText9 = "$totalamount";
     });
   }
 
@@ -1006,13 +1006,13 @@ class _HomePageState extends State<HomePage> {
     tipTxt = tipTxt.replaceAll(new RegExp(r"[^0-9]"), "");
     int bill = int.parse(billTxt.isNotEmpty ? billTxt : "0");
     int tip = int.parse(tipTxt.isNotEmpty ? tipTxt : "0");
-    String finalTipAmount = "0";
+    String totalamount = "0";
     if (tip <= 100 && tip >= 0 && bill >= 0) {
       double tipAmount = (bill * (tip / 100));
-      finalTipAmount = tipAmount.toStringAsFixed(3);
+      totalamount = (bill + tipAmount).toStringAsFixed(3);
     }
     setState(() {
-      _percentText10 = "$finalTipAmount";
+      _percentText10 = "$totalamount";
     });
   }
 }
