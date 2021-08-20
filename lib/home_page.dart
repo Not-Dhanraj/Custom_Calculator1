@@ -60,6 +60,19 @@ class _HomePageState extends State<HomePage> {
         elevation: 4,
       ),
       body: new Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            stops: [0.1, 0.3, 0.7, 1],
+            colors: [
+              Color(0xffE7EFF9),
+              Color(0xffD3E0EE),
+              Color(0xff999ADC),
+              Color(0xffD3E0EE),
+            ],
+          ),
+        ),
         child: SingleChildScrollView(
           physics: BouncingScrollPhysics(),
           child: Padding(
@@ -125,7 +138,7 @@ class _HomePageState extends State<HomePage> {
                       boxShadow: [
                         BoxShadow(
                           color: Colors.grey.withOpacity(0.5),
-                          spreadRadius: 5,
+                          spreadRadius: 1,
                           blurRadius: 7,
                           offset: Offset(0, 3), // changes position of shadow
                         ),
@@ -143,7 +156,7 @@ class _HomePageState extends State<HomePage> {
                           ClipRRect(
                             borderRadius: BorderRadius.circular(5),
                             child: Container(
-                              color: Colors.orangeAccent,
+                              color: Colors.orange[900],
                               height: 50,
                               child: Padding(
                                 padding:
@@ -152,7 +165,8 @@ class _HomePageState extends State<HomePage> {
                                   child: Text(
                                     "No Profit/Loss:",
                                     textAlign: TextAlign.center,
-                                    style: TextStyle(fontSize: 18),
+                                    style: TextStyle(
+                                        fontSize: 20, color: Colors.white),
                                   ),
                                 ),
                               ),
@@ -165,7 +179,7 @@ class _HomePageState extends State<HomePage> {
                               child: Text(
                                 _percentTextNoProfitLoss,
                                 textAlign: TextAlign.center,
-                                style: TextStyle(fontSize: 20),
+                                style: TextStyle(fontSize: 22),
                               ),
                             ),
                           ),
@@ -189,7 +203,7 @@ class _HomePageState extends State<HomePage> {
                       boxShadow: [
                         BoxShadow(
                           color: Colors.grey.withOpacity(0.5),
-                          spreadRadius: 5,
+                          spreadRadius: 1,
                           blurRadius: 7,
                           offset: Offset(0, 3), // changes position of shadow
                         ),
@@ -197,16 +211,18 @@ class _HomePageState extends State<HomePage> {
                     ),
                     child: Container(
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                        color: Colors.grey,
-                      ),
+                          borderRadius: BorderRadius.circular(10),
+                          color: Colors.tealAccent[700]),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
                           Text(
                             "1% :",
                             textAlign: TextAlign.center,
-                            style: TextStyle(fontSize: 18),
+                            style: TextStyle(
+                              fontSize: 20,
+                              color: Colors.white,
+                            ),
                           ),
                           SizedBox(
                             height: 10,
@@ -215,7 +231,8 @@ class _HomePageState extends State<HomePage> {
                             _percentText1,
                             textAlign: TextAlign.center,
                             style: TextStyle(
-                              fontSize: 20,
+                              color: Colors.white,
+                              fontSize: 22,
                             ),
                           ),
                         ],
@@ -229,7 +246,7 @@ class _HomePageState extends State<HomePage> {
                     height: 50,
                     width: width,
                     decoration: BoxDecoration(
-                      color: Colors.white,
+                      color: Colors.orange[900],
                       borderRadius: BorderRadius.only(
                           topLeft: Radius.circular(10),
                           topRight: Radius.circular(10),
@@ -238,7 +255,7 @@ class _HomePageState extends State<HomePage> {
                       boxShadow: [
                         BoxShadow(
                           color: Colors.grey.withOpacity(0.5),
-                          spreadRadius: 5,
+                          spreadRadius: 1,
                           blurRadius: 7,
                           offset: Offset(0, 3), // changes position of shadow
                         ),
@@ -254,7 +271,10 @@ class _HomePageState extends State<HomePage> {
                           Text(
                             "1.5% :",
                             textAlign: TextAlign.center,
-                            style: TextStyle(fontSize: 18),
+                            style: TextStyle(
+                              fontSize: 20,
+                              color: Colors.white,
+                            ),
                           ),
                           SizedBox(
                             height: 10,
@@ -262,7 +282,10 @@ class _HomePageState extends State<HomePage> {
                           Text(
                             _percentText15,
                             textAlign: TextAlign.center,
-                            style: TextStyle(fontSize: 20),
+                            style: TextStyle(
+                              fontSize: 22,
+                              color: Colors.white,
+                            ),
                           ),
                         ],
                       ),
@@ -275,7 +298,7 @@ class _HomePageState extends State<HomePage> {
                     height: 50,
                     width: width,
                     decoration: BoxDecoration(
-                      color: Colors.white,
+                      color: Colors.tealAccent[700],
                       borderRadius: BorderRadius.only(
                           topLeft: Radius.circular(10),
                           topRight: Radius.circular(10),
@@ -284,24 +307,20 @@ class _HomePageState extends State<HomePage> {
                       boxShadow: [
                         BoxShadow(
                           color: Colors.grey.withOpacity(0.5),
-                          spreadRadius: 5,
+                          spreadRadius: 1,
                           blurRadius: 7,
                           offset: Offset(0, 3), // changes position of shadow
                         ),
                       ],
                     ),
                     child: Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                        color: Colors.white,
-                      ),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
                           Text(
                             "2% :",
                             textAlign: TextAlign.center,
-                            style: TextStyle(fontSize: 18),
+                            style: TextStyle(fontSize: 20, color: Colors.white),
                           ),
                           SizedBox(
                             height: 5,
@@ -309,7 +328,7 @@ class _HomePageState extends State<HomePage> {
                           Text(
                             _percentText2,
                             textAlign: TextAlign.center,
-                            style: TextStyle(fontSize: 20),
+                            style: TextStyle(fontSize: 22, color: Colors.white),
                           ),
                         ],
                       ),
@@ -322,7 +341,7 @@ class _HomePageState extends State<HomePage> {
                     height: 50,
                     width: width,
                     decoration: BoxDecoration(
-                      color: Colors.white,
+                      color: Colors.orange[900],
                       borderRadius: BorderRadius.only(
                           topLeft: Radius.circular(10),
                           topRight: Radius.circular(10),
@@ -331,7 +350,7 @@ class _HomePageState extends State<HomePage> {
                       boxShadow: [
                         BoxShadow(
                           color: Colors.grey.withOpacity(0.5),
-                          spreadRadius: 5,
+                          spreadRadius: 1,
                           blurRadius: 7,
                           offset: Offset(0, 3), // changes position of shadow
                         ),
@@ -347,7 +366,7 @@ class _HomePageState extends State<HomePage> {
                           Text(
                             "2.5% :",
                             textAlign: TextAlign.center,
-                            style: TextStyle(fontSize: 18),
+                            style: TextStyle(color: Colors.white, fontSize: 20),
                           ),
                           SizedBox(
                             height: 10,
@@ -355,7 +374,7 @@ class _HomePageState extends State<HomePage> {
                           Text(
                             _percentText25,
                             textAlign: TextAlign.center,
-                            style: TextStyle(fontSize: 20),
+                            style: TextStyle(color: Colors.white, fontSize: 22),
                           ),
                         ],
                       ),
@@ -368,7 +387,7 @@ class _HomePageState extends State<HomePage> {
                     height: 50,
                     width: width,
                     decoration: BoxDecoration(
-                      color: Colors.white,
+                      color: Colors.tealAccent[700],
                       borderRadius: BorderRadius.only(
                           topLeft: Radius.circular(10),
                           topRight: Radius.circular(10),
@@ -377,7 +396,7 @@ class _HomePageState extends State<HomePage> {
                       boxShadow: [
                         BoxShadow(
                           color: Colors.grey.withOpacity(0.5),
-                          spreadRadius: 5,
+                          spreadRadius: 1,
                           blurRadius: 7,
                           offset: Offset(0, 3), // changes position of shadow
                         ),
@@ -386,7 +405,6 @@ class _HomePageState extends State<HomePage> {
                     child: Container(
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
-                        color: Colors.white,
                       ),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -394,7 +412,7 @@ class _HomePageState extends State<HomePage> {
                           Text(
                             "3% :",
                             textAlign: TextAlign.center,
-                            style: TextStyle(fontSize: 18),
+                            style: TextStyle(color: Colors.white, fontSize: 20),
                           ),
                           SizedBox(
                             height: 10,
@@ -402,7 +420,7 @@ class _HomePageState extends State<HomePage> {
                           Text(
                             _percentText3,
                             textAlign: TextAlign.center,
-                            style: TextStyle(fontSize: 20),
+                            style: TextStyle(color: Colors.white, fontSize: 22),
                           ),
                         ],
                       ),
@@ -415,7 +433,7 @@ class _HomePageState extends State<HomePage> {
                     height: 50,
                     width: width,
                     decoration: BoxDecoration(
-                      color: Colors.white,
+                      color: Colors.orange[900],
                       borderRadius: BorderRadius.only(
                           topLeft: Radius.circular(10),
                           topRight: Radius.circular(10),
@@ -424,7 +442,7 @@ class _HomePageState extends State<HomePage> {
                       boxShadow: [
                         BoxShadow(
                           color: Colors.grey.withOpacity(0.5),
-                          spreadRadius: 5,
+                          spreadRadius: 1,
                           blurRadius: 7,
                           offset: Offset(0, 3), // changes position of shadow
                         ),
@@ -440,7 +458,7 @@ class _HomePageState extends State<HomePage> {
                           Text(
                             "3.5% :",
                             textAlign: TextAlign.center,
-                            style: TextStyle(fontSize: 18),
+                            style: TextStyle(color: Colors.white, fontSize: 20),
                           ),
                           SizedBox(
                             height: 10,
@@ -448,7 +466,7 @@ class _HomePageState extends State<HomePage> {
                           Text(
                             _percentText35,
                             textAlign: TextAlign.center,
-                            style: TextStyle(fontSize: 20),
+                            style: TextStyle(color: Colors.white, fontSize: 22),
                           ),
                         ],
                       ),
@@ -461,7 +479,7 @@ class _HomePageState extends State<HomePage> {
                     height: 50,
                     width: width,
                     decoration: BoxDecoration(
-                      color: Colors.white,
+                      color: Colors.tealAccent[700],
                       borderRadius: BorderRadius.only(
                           topLeft: Radius.circular(10),
                           topRight: Radius.circular(10),
@@ -470,7 +488,7 @@ class _HomePageState extends State<HomePage> {
                       boxShadow: [
                         BoxShadow(
                           color: Colors.grey.withOpacity(0.5),
-                          spreadRadius: 5,
+                          spreadRadius: 1,
                           blurRadius: 7,
                           offset: Offset(0, 3), // changes position of shadow
                         ),
@@ -479,7 +497,6 @@ class _HomePageState extends State<HomePage> {
                     child: Container(
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
-                        color: Colors.white,
                       ),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -487,7 +504,7 @@ class _HomePageState extends State<HomePage> {
                           Text(
                             "4% :",
                             textAlign: TextAlign.center,
-                            style: TextStyle(fontSize: 18),
+                            style: TextStyle(color: Colors.white, fontSize: 20),
                           ),
                           SizedBox(
                             height: 5,
@@ -495,7 +512,7 @@ class _HomePageState extends State<HomePage> {
                           Text(
                             _percentText4,
                             textAlign: TextAlign.center,
-                            style: TextStyle(fontSize: 20),
+                            style: TextStyle(color: Colors.white, fontSize: 22),
                           ),
                         ],
                       ),
@@ -508,7 +525,7 @@ class _HomePageState extends State<HomePage> {
                     height: 50,
                     width: width,
                     decoration: BoxDecoration(
-                      color: Colors.white,
+                      color: Colors.tealAccent[700],
                       borderRadius: BorderRadius.only(
                           topLeft: Radius.circular(10),
                           topRight: Radius.circular(10),
@@ -517,7 +534,7 @@ class _HomePageState extends State<HomePage> {
                       boxShadow: [
                         BoxShadow(
                           color: Colors.grey.withOpacity(0.5),
-                          spreadRadius: 5,
+                          spreadRadius: 1,
                           blurRadius: 7,
                           offset: Offset(0, 3), // changes position of shadow
                         ),
@@ -526,7 +543,6 @@ class _HomePageState extends State<HomePage> {
                     child: Container(
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
-                        color: Colors.white,
                       ),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -534,7 +550,7 @@ class _HomePageState extends State<HomePage> {
                           Text(
                             "5% :",
                             textAlign: TextAlign.center,
-                            style: TextStyle(fontSize: 18),
+                            style: TextStyle(color: Colors.white, fontSize: 20),
                           ),
                           SizedBox(
                             height: 10,
@@ -542,7 +558,7 @@ class _HomePageState extends State<HomePage> {
                           Text(
                             _percentText5,
                             textAlign: TextAlign.center,
-                            style: TextStyle(fontSize: 20),
+                            style: TextStyle(color: Colors.white, fontSize: 22),
                           ),
                         ],
                       ),
@@ -555,7 +571,7 @@ class _HomePageState extends State<HomePage> {
                     height: 50,
                     width: width,
                     decoration: BoxDecoration(
-                      color: Colors.white,
+                      color: Colors.tealAccent[700],
                       borderRadius: BorderRadius.only(
                           topLeft: Radius.circular(10),
                           topRight: Radius.circular(10),
@@ -564,7 +580,7 @@ class _HomePageState extends State<HomePage> {
                       boxShadow: [
                         BoxShadow(
                           color: Colors.grey.withOpacity(0.5),
-                          spreadRadius: 5,
+                          spreadRadius: 1,
                           blurRadius: 7,
                           offset: Offset(0, 3), // changes position of shadow
                         ),
@@ -573,7 +589,6 @@ class _HomePageState extends State<HomePage> {
                     child: Container(
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
-                        color: Colors.white,
                       ),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -581,7 +596,7 @@ class _HomePageState extends State<HomePage> {
                           Text(
                             "6% :",
                             textAlign: TextAlign.center,
-                            style: TextStyle(fontSize: 18),
+                            style: TextStyle(color: Colors.white, fontSize: 20),
                           ),
                           SizedBox(
                             height: 5,
@@ -589,7 +604,7 @@ class _HomePageState extends State<HomePage> {
                           Text(
                             _percentText6,
                             textAlign: TextAlign.center,
-                            style: TextStyle(fontSize: 20),
+                            style: TextStyle(color: Colors.white, fontSize: 22),
                           ),
                         ],
                       ),
@@ -602,7 +617,7 @@ class _HomePageState extends State<HomePage> {
                     height: 50,
                     width: width,
                     decoration: BoxDecoration(
-                      color: Colors.white,
+                      color: Colors.tealAccent[700],
                       borderRadius: BorderRadius.only(
                           topLeft: Radius.circular(10),
                           topRight: Radius.circular(10),
@@ -611,7 +626,7 @@ class _HomePageState extends State<HomePage> {
                       boxShadow: [
                         BoxShadow(
                           color: Colors.grey.withOpacity(0.5),
-                          spreadRadius: 5,
+                          spreadRadius: 1,
                           blurRadius: 7,
                           offset: Offset(0, 3), // changes position of shadow
                         ),
@@ -620,7 +635,6 @@ class _HomePageState extends State<HomePage> {
                     child: Container(
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
-                        color: Colors.white,
                       ),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -628,7 +642,7 @@ class _HomePageState extends State<HomePage> {
                           Text(
                             "7% :",
                             textAlign: TextAlign.center,
-                            style: TextStyle(fontSize: 18),
+                            style: TextStyle(color: Colors.white, fontSize: 20),
                           ),
                           SizedBox(
                             height: 10,
@@ -636,7 +650,7 @@ class _HomePageState extends State<HomePage> {
                           Text(
                             _percentText7,
                             textAlign: TextAlign.center,
-                            style: TextStyle(fontSize: 20),
+                            style: TextStyle(color: Colors.white, fontSize: 22),
                           ),
                         ],
                       ),
@@ -649,7 +663,7 @@ class _HomePageState extends State<HomePage> {
                     height: 50,
                     width: width,
                     decoration: BoxDecoration(
-                      color: Colors.white,
+                      color: Colors.tealAccent[700],
                       borderRadius: BorderRadius.only(
                           topLeft: Radius.circular(10),
                           topRight: Radius.circular(10),
@@ -658,7 +672,7 @@ class _HomePageState extends State<HomePage> {
                       boxShadow: [
                         BoxShadow(
                           color: Colors.grey.withOpacity(0.5),
-                          spreadRadius: 5,
+                          spreadRadius: 1,
                           blurRadius: 7,
                           offset: Offset(0, 3), // changes position of shadow
                         ),
@@ -667,7 +681,6 @@ class _HomePageState extends State<HomePage> {
                     child: Container(
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
-                        color: Colors.white,
                       ),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -675,7 +688,7 @@ class _HomePageState extends State<HomePage> {
                           Text(
                             "8% :",
                             textAlign: TextAlign.center,
-                            style: TextStyle(fontSize: 18),
+                            style: TextStyle(color: Colors.white, fontSize: 20),
                           ),
                           SizedBox(
                             height: 5,
@@ -683,7 +696,7 @@ class _HomePageState extends State<HomePage> {
                           Text(
                             _percentText8,
                             textAlign: TextAlign.center,
-                            style: TextStyle(fontSize: 20),
+                            style: TextStyle(color: Colors.white, fontSize: 22),
                           ),
                         ],
                       ),
@@ -696,7 +709,7 @@ class _HomePageState extends State<HomePage> {
                     width: width,
                     height: 50,
                     decoration: BoxDecoration(
-                      color: Colors.white,
+                      color: Colors.tealAccent[700],
                       borderRadius: BorderRadius.only(
                           topLeft: Radius.circular(10),
                           topRight: Radius.circular(10),
@@ -705,7 +718,7 @@ class _HomePageState extends State<HomePage> {
                       boxShadow: [
                         BoxShadow(
                           color: Colors.grey.withOpacity(0.5),
-                          spreadRadius: 5,
+                          spreadRadius: 1,
                           blurRadius: 7,
                           offset: Offset(0, 3), // changes position of shadow
                         ),
@@ -714,7 +727,6 @@ class _HomePageState extends State<HomePage> {
                     child: Container(
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
-                        color: Colors.white,
                       ),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -722,7 +734,7 @@ class _HomePageState extends State<HomePage> {
                           Text(
                             "9% :",
                             textAlign: TextAlign.center,
-                            style: TextStyle(fontSize: 18),
+                            style: TextStyle(color: Colors.white, fontSize: 20),
                           ),
                           SizedBox(
                             height: 10,
@@ -730,7 +742,7 @@ class _HomePageState extends State<HomePage> {
                           Text(
                             _percentText9,
                             textAlign: TextAlign.center,
-                            style: TextStyle(fontSize: 20),
+                            style: TextStyle(color: Colors.white, fontSize: 22),
                           ),
                         ],
                       ),
@@ -743,7 +755,7 @@ class _HomePageState extends State<HomePage> {
                     height: 50,
                     width: width,
                     decoration: BoxDecoration(
-                      color: Colors.white,
+                      color: Colors.tealAccent[700],
                       borderRadius: BorderRadius.only(
                           topLeft: Radius.circular(10),
                           topRight: Radius.circular(10),
@@ -752,7 +764,7 @@ class _HomePageState extends State<HomePage> {
                       boxShadow: [
                         BoxShadow(
                           color: Colors.grey.withOpacity(0.5),
-                          spreadRadius: 5,
+                          spreadRadius: 1,
                           blurRadius: 7,
                           offset: Offset(0, 3), // changes position of shadow
                         ),
@@ -761,7 +773,6 @@ class _HomePageState extends State<HomePage> {
                     child: Container(
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
-                        color: Colors.white,
                       ),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -769,7 +780,7 @@ class _HomePageState extends State<HomePage> {
                           Text(
                             "10% :",
                             textAlign: TextAlign.center,
-                            style: TextStyle(fontSize: 18),
+                            style: TextStyle(color: Colors.white, fontSize: 20),
                           ),
                           SizedBox(
                             height: 5,
@@ -777,7 +788,7 @@ class _HomePageState extends State<HomePage> {
                           Text(
                             _percentText10,
                             textAlign: TextAlign.center,
-                            style: TextStyle(fontSize: 20),
+                            style: TextStyle(color: Colors.white, fontSize: 22),
                           ),
                         ],
                       ),
