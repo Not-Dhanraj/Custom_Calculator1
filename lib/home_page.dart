@@ -799,10 +799,8 @@ class _HomePageState extends State<HomePage> {
     int bill = int.parse(billTxt.isNotEmpty ? billTxt : "0");
     int tip = int.parse(tipTxt.isNotEmpty ? tipTxt : "0");
     String totalamount = "0";
-    if (tip <= 100 && tip >= 0 && bill >= 0) {
-      double tipAmount = (bill * (tip / 100));
-      totalamount = (bill + tipAmount).toStringAsFixed(3);
-    }
+    double tipAmount = (bill * (tip / 100));
+    totalamount = (bill + tipAmount).toStringAsFixed(3);
     setState(() {
       _percentText1 = "$totalamount";
     });
