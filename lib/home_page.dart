@@ -795,7 +795,6 @@ class _HomePageState extends State<HomePage> {
     String billTxt = _billController.text;
     String tipTxt = 1.toString();
     billTxt = billTxt.replaceAll(new RegExp(r"[^0-9]"), "");
-    tipTxt = tipTxt.replaceAll(new RegExp(r"[^0-9]"), "");
     int bill = int.parse(billTxt.isNotEmpty ? billTxt : "0");
     int tip = int.parse(tipTxt.isNotEmpty ? tipTxt : "0");
     String totalamount = "0";
@@ -822,7 +821,6 @@ class _HomePageState extends State<HomePage> {
     String billTxt = _billController.text;
     String tipTxt = 2.toString();
     billTxt = billTxt.replaceAll(new RegExp(r"[^0-9]"), "");
-    tipTxt = tipTxt.replaceAll(new RegExp(r"[^0-9]"), "");
     int bill = int.parse(billTxt.isNotEmpty ? billTxt : "0");
     int tip = int.parse(tipTxt.isNotEmpty ? tipTxt : "0");
     String totalamount = "0";
@@ -849,7 +847,6 @@ class _HomePageState extends State<HomePage> {
     String billTxt = _billController.text;
     String tipTxt = 3.toString();
     billTxt = billTxt.replaceAll(new RegExp(r"[^0-9]"), "");
-    tipTxt = tipTxt.replaceAll(new RegExp(r"[^0-9]"), "");
     int bill = int.parse(billTxt.isNotEmpty ? billTxt : "0");
     int tip = int.parse(tipTxt.isNotEmpty ? tipTxt : "0");
     String totalamount = "0";
@@ -876,7 +873,6 @@ class _HomePageState extends State<HomePage> {
     String billTxt = _billController.text;
     String tipTxt = 4.toString();
     billTxt = billTxt.replaceAll(new RegExp(r"[^0-9]"), "");
-    tipTxt = tipTxt.replaceAll(new RegExp(r"[^0-9]"), "");
     int bill = int.parse(billTxt.isNotEmpty ? billTxt : "0");
     int tip = int.parse(tipTxt.isNotEmpty ? tipTxt : "0");
     String totalamount = "0";
@@ -891,7 +887,6 @@ class _HomePageState extends State<HomePage> {
     String billTxt = _billController.text;
     String tipTxt = 5.toString();
     billTxt = billTxt.replaceAll(new RegExp(r"[^0-9]"), "");
-    tipTxt = tipTxt.replaceAll(new RegExp(r"[^0-9]"), "");
     int bill = int.parse(billTxt.isNotEmpty ? billTxt : "0");
     int tip = int.parse(tipTxt.isNotEmpty ? tipTxt : "0");
     String totalamount = "0";
@@ -906,7 +901,6 @@ class _HomePageState extends State<HomePage> {
     String billTxt = _billController.text;
     String tipTxt = 6.toString();
     billTxt = billTxt.replaceAll(new RegExp(r"[^0-9]"), "");
-    tipTxt = tipTxt.replaceAll(new RegExp(r"[^0-9]"), "");
     int bill = int.parse(billTxt.isNotEmpty ? billTxt : "0");
     int tip = int.parse(tipTxt.isNotEmpty ? tipTxt : "0");
     String totalamount = "0";
@@ -921,7 +915,6 @@ class _HomePageState extends State<HomePage> {
     String billTxt = _billController.text;
     String tipTxt = 7.toString();
     billTxt = billTxt.replaceAll(new RegExp(r"[^0-9]"), "");
-    tipTxt = tipTxt.replaceAll(new RegExp(r"[^0-9]"), "");
     int bill = int.parse(billTxt.isNotEmpty ? billTxt : "0");
     int tip = int.parse(tipTxt.isNotEmpty ? tipTxt : "0");
     String totalamount = "0";
@@ -936,7 +929,6 @@ class _HomePageState extends State<HomePage> {
     String billTxt = _billController.text;
     String tipTxt = 8.toString();
     billTxt = billTxt.replaceAll(new RegExp(r"[^0-9]"), "");
-    tipTxt = tipTxt.replaceAll(new RegExp(r"[^0-9]"), "");
     int bill = int.parse(billTxt.isNotEmpty ? billTxt : "0");
     int tip = int.parse(tipTxt.isNotEmpty ? tipTxt : "0");
     String totalamount = "0";
@@ -951,7 +943,6 @@ class _HomePageState extends State<HomePage> {
     String billTxt = _billController.text;
     String tipTxt = 9.toString();
     billTxt = billTxt.replaceAll(new RegExp(r"[^0-9]"), "");
-    tipTxt = tipTxt.replaceAll(new RegExp(r"[^0-9]"), "");
     int bill = int.parse(billTxt.isNotEmpty ? billTxt : "0");
     int tip = int.parse(tipTxt.isNotEmpty ? tipTxt : "0");
     String totalamount = "0";
@@ -978,7 +969,6 @@ class _HomePageState extends State<HomePage> {
     String billTxt = _billController.text;
     String tipTxt = 10.toString();
     billTxt = billTxt.replaceAll(new RegExp(r"[^0-9]"), "");
-    tipTxt = tipTxt.replaceAll(new RegExp(r"[^0-9]"), "");
     int bill = int.parse(billTxt.isNotEmpty ? billTxt : "0");
     int tip = int.parse(tipTxt.isNotEmpty ? tipTxt : "0");
     String totalamount = "0";
