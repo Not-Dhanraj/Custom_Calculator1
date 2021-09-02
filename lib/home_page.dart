@@ -74,6 +74,7 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
         child: ListView(
+          physics: BouncingScrollPhysics(),
           padding: EdgeInsets.symmetric(horizontal: 25, vertical: 20),
           children: <Widget>[
             Padding(padding: EdgeInsets.only(top: 5)),
