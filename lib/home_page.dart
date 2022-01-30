@@ -1,6 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -221,12 +219,14 @@ class _HomePageState extends State<HomePage> {
                     SizedBox(
                       height: 10,
                     ),
-                    Text(
-                      _percentText1,
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 22,
+                    FittedBox(
+                      child: Text(
+                        _percentText1,
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 22,
+                        ),
                       ),
                     ),
                   ],
@@ -801,7 +801,7 @@ class _HomePageState extends State<HomePage> {
     int tip = int.parse(tipTxt.isNotEmpty ? tipTxt : "0");
     String totalamount = "0";
     double tipAmount = (bill * (tip / 100));
-    totalamount = (bill + tipAmount).toStringAsFixed(3);
+    totalamount = (bill + tipAmount).toStringAsFixed(20);
     setState(() {
       _percentText1 = "$totalamount";
     });
@@ -812,7 +812,7 @@ class _HomePageState extends State<HomePage> {
     double bill = double.parse(billTxt.isNotEmpty ? billTxt : "0");
     String totalamount = "0";
     double tipAmount = (bill * (1.5 / 100));
-    totalamount = (bill + tipAmount).toStringAsFixed(3);
+    totalamount = (bill + tipAmount).toStringAsFixed(20);
     setState(() {
       _percentText15 = "$totalamount";
     });
@@ -825,7 +825,7 @@ class _HomePageState extends State<HomePage> {
     int tip = int.parse(tipTxt.isNotEmpty ? tipTxt : "0");
     String totalamount = "0";
     double tipAmount = (bill * (tip / 100));
-    totalamount = (bill + tipAmount).toStringAsFixed(3);
+    totalamount = (bill + tipAmount).toStringAsFixed(20);
     setState(() {
       _percentText2 = "$totalamount";
     });
@@ -836,7 +836,7 @@ class _HomePageState extends State<HomePage> {
     double bill = double.parse(billTxt.isNotEmpty ? billTxt : "0");
     String totalamount = "0";
     double tipAmount = (bill * (2.5 / 100));
-    totalamount = (bill + tipAmount).toStringAsFixed(3);
+    totalamount = (bill + tipAmount).toStringAsFixed(20);
     setState(() {
       _percentText25 = "$totalamount";
     });
@@ -849,7 +849,7 @@ class _HomePageState extends State<HomePage> {
     int tip = int.parse(tipTxt.isNotEmpty ? tipTxt : "0");
     String totalamount = "0";
     double tipAmount = (bill * (tip / 100));
-    totalamount = (bill + tipAmount).toStringAsFixed(3);
+    totalamount = (bill + tipAmount).toStringAsFixed(20);
     setState(() {
       _percentText3 = "$totalamount";
     });
@@ -860,7 +860,7 @@ class _HomePageState extends State<HomePage> {
     double bill = double.parse(billTxt.isNotEmpty ? billTxt : "0");
     String totalamount = "0";
     double tipAmount = (bill * (3.5 / 100));
-    totalamount = (bill + tipAmount).toStringAsFixed(3);
+    totalamount = (bill + tipAmount).toStringAsFixed(20);
     setState(() {
       _percentText35 = "$totalamount";
     });
@@ -873,7 +873,7 @@ class _HomePageState extends State<HomePage> {
     int tip = int.parse(tipTxt.isNotEmpty ? tipTxt : "0");
     String totalamount = "0";
     double tipAmount = (bill * (tip / 100));
-    totalamount = (bill + tipAmount).toStringAsFixed(3);
+    totalamount = (bill + tipAmount).toStringAsFixed(20);
     setState(() {
       _percentText4 = "$totalamount";
     });
@@ -886,7 +886,7 @@ class _HomePageState extends State<HomePage> {
     int tip = int.parse(tipTxt.isNotEmpty ? tipTxt : "0");
     String totalamount = "0";
     double tipAmount = (bill * (tip / 100));
-    totalamount = (bill + tipAmount).toStringAsFixed(3);
+    totalamount = (bill + tipAmount).toStringAsFixed(20);
     setState(() {
       _percentText5 = "$totalamount";
     });
@@ -899,7 +899,7 @@ class _HomePageState extends State<HomePage> {
     int tip = int.parse(tipTxt.isNotEmpty ? tipTxt : "0");
     String totalamount = "0";
     double tipAmount = (bill * (tip / 100));
-    totalamount = (bill + tipAmount).toStringAsFixed(3);
+    totalamount = (bill + tipAmount).toStringAsFixed(20);
     setState(() {
       _percentText6 = "$totalamount";
     });
@@ -912,7 +912,7 @@ class _HomePageState extends State<HomePage> {
     int tip = int.parse(tipTxt.isNotEmpty ? tipTxt : "0");
     String totalamount = "0";
     double tipAmount = (bill * (tip / 100));
-    totalamount = (bill + tipAmount).toStringAsFixed(3);
+    totalamount = (bill + tipAmount).toStringAsFixed(20);
     setState(() {
       _percentText7 = "$totalamount";
     });
@@ -925,7 +925,7 @@ class _HomePageState extends State<HomePage> {
     int tip = int.parse(tipTxt.isNotEmpty ? tipTxt : "0");
     String totalamount = "0";
     double tipAmount = (bill * (tip / 100));
-    totalamount = (bill + tipAmount).toStringAsFixed(3);
+    totalamount = (bill + tipAmount).toStringAsFixed(20);
     setState(() {
       _percentText8 = "$totalamount";
     });
@@ -938,7 +938,7 @@ class _HomePageState extends State<HomePage> {
     int tip = int.parse(tipTxt.isNotEmpty ? tipTxt : "0");
     String totalamount = "0";
     double tipAmount = (bill * (tip / 100));
-    totalamount = (bill + tipAmount).toStringAsFixed(3);
+    totalamount = (bill + tipAmount).toStringAsFixed(20);
     setState(() {
       _percentText9 = "$totalamount";
     });
@@ -949,7 +949,7 @@ class _HomePageState extends State<HomePage> {
     double bill = double.parse(billTxt.isNotEmpty ? billTxt : "0");
     String totalamount = "0";
     double tipAmount = (bill * (0.4 / 100));
-    totalamount = (bill + tipAmount).toStringAsFixed(3);
+    totalamount = (bill + tipAmount).toStringAsFixed(20);
     setState(() {
       _percentTextNoProfitLoss = "$totalamount";
     });
@@ -962,7 +962,7 @@ class _HomePageState extends State<HomePage> {
     int tip = int.parse(tipTxt.isNotEmpty ? tipTxt : "0");
     String totalamount = "0";
     double tipAmount = (bill * (tip / 100));
-    totalamount = (bill + tipAmount).toStringAsFixed(3);
+    totalamount = (bill + tipAmount).toStringAsFixed(20);
     setState(() {
       _percentText10 = "$totalamount";
     });
